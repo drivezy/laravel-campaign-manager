@@ -29,10 +29,10 @@ class ApplyCoupon {
     /**
      * ApplyCoupon constructor.
      *
-     * @param array $request
+     * @param $request
      */
-    public function __construct (array $request) {
-        $this->request = (object) $request;
+    public function __construct (object $request) {
+        $this->request = $request;
     }
 
     /**

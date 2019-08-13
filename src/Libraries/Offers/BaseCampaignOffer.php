@@ -1,6 +1,6 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Libraries\Offer;
+namespace Drivezy\LaravelMarketing\Libraries\Offers;
 
 use Drivezy\LaravelMarketing\Models\CampaignOffer;
 use Drivezy\LaravelUtility\Facade\Message;

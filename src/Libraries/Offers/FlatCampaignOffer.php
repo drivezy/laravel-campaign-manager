@@ -1,6 +1,6 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Libraries\Offer;
+namespace Drivezy\LaravelMarketing\Libraries\Offers;
 
 /**
  * Class FlatCampaignOffer
