@@ -1,10 +1,10 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Libraries\Offers;
+namespace Drivezy\LaravelCampaignManager\Libraries\Offers;
 
 /**
  * Class PercentageCampaignOffer
- * @package Drivezy\LaravelMarketing\Libraries\Offer
+ * @package Drivezy\LaravelCampaignManager\Libraries\Offer
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class PercentageCampaignOffer extends BaseCampaignOffer {

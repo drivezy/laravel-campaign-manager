@@ -1,13 +1,13 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Libraries\Validations;
+namespace Drivezy\LaravelCampaignManager\Libraries\Validations;
 
-use Drivezy\LaravelMarketing\Libraries\CouponDataTrait;
+use Drivezy\LaravelCampaignManager\Libraries\CouponDataTrait;
 use Drivezy\LaravelUtility\Library\DateUtil;
 
 /**
  * Class TermCampaignValidation
- * @package Drivezy\LaravelMarketing\Libraries\Validations
+ * @package Drivezy\LaravelCampaignManager\Libraries\Validations
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class TermCampaignValidation extends BaseCampaignValidation {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Models;
+namespace Drivezy\LaravelCampaignManager\Models;
 
-use Drivezy\LaravelMarketing\Observers\CampaignValidationMasterObserver;
+use Drivezy\LaravelCampaignManager\Observers\CampaignValidationMasterObserver;
 use Drivezy\LaravelUtility\Models\BaseModel;
 use Drivezy\LaravelRecordManager\Models\Column;
 use Drivezy\LaravelRecordManager\Models\DataModel;

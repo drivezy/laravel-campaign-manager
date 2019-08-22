@@ -19,7 +19,7 @@ class CreateDzCampaignCouponsTable extends Migration {
         Schema::create('dz_campaign_coupons', function (Blueprint $table) {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->unsignedInteger('campaign_id')->comment('Reference on dz_campaign_details')->nullable();
 
             $table->string('code')->comment('Coupon code')->nullable();

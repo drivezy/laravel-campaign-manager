@@ -1,8 +1,8 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Models;
+namespace Drivezy\LaravelCampaignManager\Models;
 
-use Drivezy\LaravelMarketing\Observers\CampaignDetailObserver;
+use Drivezy\LaravelCampaignManager\Observers\CampaignDetailObserver;
 use Drivezy\LaravelUtility\Models\BaseModel;
 
 /**
@@ -21,7 +21,7 @@ class CampaignDetail extends BaseModel {
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function validations () {
-        return $this->hasMany(CampaignValidation::class, 'source_id', 'id')->where('source_type',  md5(self::class));
+        return $this->hasMany(CampaignValidation::class, 'source_id')->where('source_type',  md5(self::class));
     }
 
     /**
@@ -29,7 +29,7 @@ class CampaignDetail extends BaseModel {
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function offers () {
-        return $this->hasMany(CampaignOffer::class, 'source_id', 'id')->where('source_type',  md5(self::class));
+        return $this->hasMany(CampaignOffer::class, 'source_id')->where('source_type',  md5(self::class));
     }
 
     /**
@@ -37,7 +37,7 @@ class CampaignDetail extends BaseModel {
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function term () {
-        return $this->hasMany(CampaignTerm::class, 'source_id', 'id')->where('source_type',  md5(self::class));
+        return $this->hasMany(CampaignTerm::class, 'source_id')->where('source_type',  md5(self::class));
     }
 
     /**
@@ -45,7 +45,7 @@ class CampaignDetail extends BaseModel {
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function coupons () {
-        return $this->hasMany(CampaignCoupon::class, 'campaign_id', 'id');
+        return $this->hasMany(CampaignCoupon::class, 'campaign_id');
     }
 
     /**

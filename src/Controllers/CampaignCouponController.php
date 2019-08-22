@@ -1,13 +1,13 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Controllers;
+namespace Drivezy\LaravelCampaignManager\Controllers;
 
 use Drivezy\LaravelRecordManager\Controllers\RecordController;
-use  Drivezy\LaravelMarketing\Models\CampaignCoupon;
+use  Drivezy\LaravelCampaignManager\Models\CampaignCoupon;
 
 /**
  * Class CampaignCouponController
- * @package JRApp\Http\Controllers\Marketing
+ * @package Drivezy\LaravelCampaignManager\Controllers
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class CampaignCouponController extends RecordController {

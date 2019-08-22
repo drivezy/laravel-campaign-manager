@@ -1,12 +1,12 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Observers;
+namespace Drivezy\LaravelCampaignManager\Observers;
 
 use Drivezy\LaravelUtility\Observers\BaseObserver;
 
 /**
  * Class CampaignOfferObserver
- * @package JRApp\Observers\Marketing
+ * @package Drivezy\LaravelCampaignManager\Observers
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class CampaignOfferObserver extends BaseObserver {

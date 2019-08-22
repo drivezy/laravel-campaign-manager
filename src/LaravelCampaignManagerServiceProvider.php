@@ -1,15 +1,15 @@
 <?php
 
-namespace Drivezy\LaravelMarketing;
+namespace Drivezy\LaravelCampaignManager;
 
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class LaravelMarketingServiceProvider
- * @package Drivezy\LaravelMarketing
+ * Class LaravelCampaignManagerServiceProvider
+ * @package Drivezy\LaravelCampaignManager
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
-class LaravelMarketingServiceProvider extends ServiceProvider {
+class LaravelCampaignManagerServiceProvider extends ServiceProvider {
 
     /**
      * Bootstrap services.

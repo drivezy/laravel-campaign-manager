@@ -1,11 +1,11 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Libraries\Validations;
+namespace Drivezy\LaravelCampaignManager\Libraries\Validations;
 
 
 /**
  * Class AgeCampaignValidation
- * @package Drivezy\LaravelMarketing\Libraries\Validations
+ * @package Drivezy\LaravelCampaignManager\Libraries\Validations
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class AgeCampaignValidation extends BaseCampaignValidation {
