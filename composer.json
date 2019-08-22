@@ -1,23 +1,23 @@
 {
-  "name": "drivezy/laravel-marketing",
-  "description": "To manage marketing campaigns and coupons.",
-  "type": "library",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Yash Devkota",
-      "email": "devkotayash4098@gmail.com"
+    "name": "drivezy/laravel-campaign-manager",
+    "description": "To manage marketing campaigns and coupons.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yash Devkota",
+            "email": "devkotayash4098@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "drivezy/laravel-record-manager": "1.*",
+        "drivezy/laravel-utility": "1.*",
+        "drivezy/laravel-access-manager": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Drivezy\\LaravelMarketing\\": "src/"
+        }
     }
-  ],
-  "minimum-stability": "stable",
-  "require": {
-    "drivezy/laravel-record-manager": "^7.1",
-    "drivezy/laravel-utility": "^0.11.8",
-    "drivezy/laravel-access-manager": "^0.6.4"
-  },
-  "autoload": {
-    "psr-4": {
-      "Drivezy\\LaravelMarketing\\": "src/"
-    }
-  }
 }
