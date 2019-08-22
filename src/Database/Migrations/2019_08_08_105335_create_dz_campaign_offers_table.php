@@ -19,7 +19,7 @@ class CreateDzCampaignOffersTable extends Migration {
         Schema::create('dz_campaign_offers', function (Blueprint $table) {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->increments('id');
+            $table->bigIncrements('id');
 
             $table->string('source_type')->comment('Offer source type')->nullable();
             $table->unsignedInteger('source_id')->comment('Offer source id')->nullable();

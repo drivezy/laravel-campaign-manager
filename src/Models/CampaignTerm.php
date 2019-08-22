@@ -1,8 +1,8 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Models;
+namespace Drivezy\LaravelCampaignManager\Models;
 
-use Drivezy\LaravelMarketing\Observers\CampaignTermObserver;
+use Drivezy\LaravelCampaignManager\Observers\CampaignTermObserver;
 use Drivezy\LaravelUtility\Models\BaseModel;
 
 /**
@@ -14,7 +14,7 @@ class CampaignTerm extends BaseModel {
     /**
      * @var Campaign Term table.
      */
-    protected $table = 'dz_campaign_term';
+    protected $table = 'dz_campaign_terms';
 
     /**
      * Boot

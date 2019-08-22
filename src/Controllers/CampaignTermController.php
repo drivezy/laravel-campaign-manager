@@ -1,13 +1,13 @@
 <?php
 
-namespace JRApp\Http\Controllers\Marketing;
+namespace Drivezy\LaravelCampaignManager\Controllers;
 
-use Drivezy\LaravelMarketing\Models\CampaignTerm;
+use Drivezy\LaravelCampaignManager\Models\CampaignTerm;
 use Drivezy\LaravelRecordManager\Controllers\RecordController;
 
 /**
  * Class CampaignTermController
- * @package JRApp\Http\Controllers\Marketing
+ * @package Drivezy\LaravelCampaignManager\Controllers
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class CampaignTermController extends RecordController {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Libraries\Validations;
+namespace Drivezy\LaravelCampaignManager\Libraries\Validations;
 
 use Illuminate\Support\Str;
 
 /**
  * Class ModelColumnCampaignValidation
- * @package Drivezy\LaravelMarketing\Libraries\Validations
+ * @package Drivezy\LaravelCampaignManager\Libraries\Validations
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class ModelColumnCampaignValidation extends BaseCampaignValidation {

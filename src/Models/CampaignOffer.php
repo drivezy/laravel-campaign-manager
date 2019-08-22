@@ -1,8 +1,8 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Models;
+namespace Drivezy\LaravelCampaignManager\Models;
 
-use Drivezy\LaravelMarketing\Observers\CampaignOfferObserver;
+use Drivezy\LaravelCampaignManager\Observers\CampaignOfferObserver;
 use Drivezy\LaravelUtility\Models\BaseModel;
 use Drivezy\LaravelUtility\Models\LookupValue;
 

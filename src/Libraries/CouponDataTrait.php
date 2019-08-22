@@ -1,10 +1,10 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Libraries;
+namespace Drivezy\LaravelCampaignManager\Libraries;
 
 /**
  * Trait CouponDataTrait
- * @package Drivezy\LaravelMarketing\Libraries
+ * @package Drivezy\LaravelCampaignManager\Libraries
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 trait CouponDataTrait {

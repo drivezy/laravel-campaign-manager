@@ -19,7 +19,7 @@ class CreateDzCampaignTermTable extends Migration {
         Schema::create('dz_campaign_term', function (Blueprint $table) {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->increments('id');
+            $table->bigIncrements('id');
 
             $table->string('source_type')->comment('Term source type');
             $table->unsignedInteger('source_id')->comment('Term source id');

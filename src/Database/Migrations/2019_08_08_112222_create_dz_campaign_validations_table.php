@@ -19,7 +19,7 @@ class CreateDzCampaignValidationsTable extends Migration {
         Schema::create('dz_campaign_validations', function (Blueprint $table) {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->unsignedInteger('master_id')->comment('Reference on dz_campaign_validation_master')->nullable();
 
             $table->string('source_type')->comment('Validation source type')->nullable();

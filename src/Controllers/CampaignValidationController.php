@@ -1,13 +1,13 @@
 <?php
 
-namespace JRApp\Http\Controllers\Marketing;
+namespace Drivezy\LaravelCampaignManager\Controllers;
 
-use Drivezy\LaravelMarketing\Models\CampaignValidation;
+use Drivezy\LaravelCampaignManager\Models\CampaignValidation;
 use Drivezy\LaravelRecordManager\Controllers\RecordController;
 
 /**
  * Class CampaignValidationController
- * @package JRApp\Http\Controllers\Marketing
+ * @package Drivezy\LaravelCampaignManager\Controllers
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class CampaignValidationController extends RecordController {

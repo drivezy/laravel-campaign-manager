@@ -1,15 +1,15 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Libraries\Validations;
+namespace Drivezy\LaravelCampaignManager\Libraries\Validations;
 
-use Drivezy\LaravelMarketing\Libraries\CampaignConditionEvaluator;
-use Drivezy\LaravelMarketing\Models\CampaignValidation;
+use Drivezy\LaravelCampaignManager\Libraries\CampaignConditionEvaluator;
+use Drivezy\LaravelCampaignManager\Models\CampaignValidation;
 use Illuminate\Support\Facades\Auth;
 use Drivezy\LaravelUtility\Facade\Message;
 
 /**
  * Class BaseCampaignValidation
- * @package Drivezy\LaravelMarketing\Libraries\Validations
+ * @package Drivezy\LaravelCampaignManager\Libraries\Validations
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class BaseCampaignValidation {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Libraries;
+namespace Drivezy\LaravelCampaignManager\Libraries;
 
-use Drivezy\LaravelMarketing\Libraries\Validations\ModelColumnCampaignValidation;
+use Drivezy\LaravelCampaignManager\Libraries\Validations\ModelColumnCampaignValidation;
 
 /**
  * Class ApplyCoupon
- * @package Drivezy\LaravelMarketing\Libraries
+ * @package Drivezy\LaravelCampaignManager\Libraries
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class ApplyCoupon {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Libraries;
+namespace Drivezy\LaravelCampaignManager\Libraries;
 
-use Drivezy\LaravelMarketing\Models\CampaignValidation;
+use Drivezy\LaravelCampaignManager\Models\CampaignValidation;
 
 /**
  * Class CampaignConditionEvaluator
@@ -12,7 +12,7 @@ use Drivezy\LaravelMarketing\Models\CampaignValidation;
  * <OPERATOR> is taken from CampaignValidation. Each type of operator is defined by a method.
  * <Y> is comparision value taken from CampaignValidation.
  *
- * @package Drivezy\LaravelMarketing\Libraries
+ * @package Drivezy\LaravelCampaignManager\Libraries
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class CampaignConditionEvaluator {

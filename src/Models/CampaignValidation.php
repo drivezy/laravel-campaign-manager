@@ -1,8 +1,8 @@
 <?php
 
-namespace Drivezy\LaravelMarketing\Models;
+namespace Drivezy\LaravelCampaignManager\Models;
 
-use Drivezy\LaravelMarketing\Observers\CampaignValidationObserver;
+use Drivezy\LaravelCampaignManager\Observers\CampaignValidationObserver;
 use Drivezy\LaravelUtility\Models\BaseModel;
 
 /**
