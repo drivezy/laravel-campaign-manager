@@ -11,9 +11,9 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "drivezy/laravel-record-manager": "^7.1",
-        "drivezy/laravel-utility": "^0.11.8",
-        "drivezy/laravel-access-manager": "^0.6.4"
+        "drivezy/laravel-record-manager": "1.*",
+        "drivezy/laravel-utility": "1.*",
+        "drivezy/laravel-access-manager": "1.*"
     },
     "autoload": {
         "psr-4": {
