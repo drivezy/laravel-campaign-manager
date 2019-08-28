@@ -151,8 +151,12 @@ class BaseCampaignOffer {
     }
 
     /**
-     * This method is to be overwritten in all child classes.
+     * Sets offer value
+     *
+     * This method is to be overwritten in child classes if offer benefit needs to be calculated.
+     *
      */
     protected function setOfferValue () {
+        $this->request->coupon_benefits[ $this->offerNature ] = $this->offer->rate;
     }
 }
