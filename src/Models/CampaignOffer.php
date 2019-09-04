@@ -9,9 +9,10 @@ use Drivezy\LaravelUtility\Models\LookupValue;
 /**
  * Class CampaignOffer
  * @package JRApp\Models\Marketing
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
-class CampaignOffer extends BaseModel {
+class CampaignOffer extends BaseModel
+{
     /**
      * @var Campaign offers table.
      */
@@ -22,7 +23,8 @@ class CampaignOffer extends BaseModel {
      * Nature of offer.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function rate_nature () {
+    public function rate_nature ()
+    {
         return $this->belongsTo(LookupValue::class);
     }
 
@@ -30,14 +32,16 @@ class CampaignOffer extends BaseModel {
      * Type of offer.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function offer_type () {
+    public function offer_type ()
+    {
         return $this->belongsTo(LookupValue::class);
     }
 
     /**
      * Boot
      */
-    public static function boot () {
+    public static function boot ()
+    {
         parent::boot();
         self::observe(new CampaignOfferObserver());
     }

@@ -9,14 +9,17 @@ use Illuminate\Database\Migrations\Migration;
  * Class CreateDzCampaignValidationsTable
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
-class CreateDzCampaignValidationsTable extends Migration {
+class CreateDzCampaignValidationsTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up () {
-        Schema::create('dz_campaign_validations', function (Blueprint $table) {
+    public function up ()
+    {
+        Schema::create('dz_campaign_validations', function (Blueprint $table)
+        {
             $userTable = LaravelUtility::getUserTable();
 
             $table->bigIncrements('id');
@@ -50,7 +53,8 @@ class CreateDzCampaignValidationsTable extends Migration {
      *
      * @return void
      */
-    public function down () {
+    public function down ()
+    {
         Schema::dropIfExists('dz_campaign_validations');
     }
 }

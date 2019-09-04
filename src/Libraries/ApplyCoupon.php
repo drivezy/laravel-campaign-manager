@@ -7,9 +7,10 @@ use Drivezy\LaravelCampaignManager\Libraries\Validations\ModelColumnCampaignVali
 /**
  * Class ApplyCoupon
  * @package Drivezy\LaravelCampaignManager\Libraries
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
-class ApplyCoupon {
+class ApplyCoupon
+{
     use CouponDataTrait;
 
     /**
@@ -31,14 +32,16 @@ class ApplyCoupon {
      *
      * @param $request
      */
-    public function __construct (object $request) {
+    public function __construct (object $request)
+    {
         $this->request = $request;
     }
 
     /**
      * Sets validate coupon flag to false.
      */
-    public function bypassValidation () {
+    public function bypassValidation ()
+    {
         $this->validateCouponFlag = false;
     }
 
@@ -47,7 +50,8 @@ class ApplyCoupon {
      *
      * @return object|bool
      */
-    public function process () {
+    public function process ()
+    {
         /**
          * Checks if validation is to be done for this coupon.
          *
@@ -74,7 +78,8 @@ class ApplyCoupon {
      * Validation process.
      * @return bool
      */
-    private function validate () {
+    private function validate ()
+    {
         /**
          * Validation data from coupon|campaign.
          */
@@ -93,14 +98,16 @@ class ApplyCoupon {
     /**
      * Initializes data for benefits generation.
      */
-    private function initialize () {
+    private function initialize ()
+    {
         $this->request->coupon_benefits = [];
     }
 
     /**
      * Sets coupon benefits from offer.
      */
-    private function setCouponBenefits () {
+    private function setCouponBenefits ()
+    {
         /**
          * Offer data from coupon|campaign.
          */

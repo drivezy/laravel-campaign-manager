@@ -7,11 +7,14 @@ use Drivezy\LaravelUtility\Observers\BaseObserver;
 /**
  * Class CampaignOfferObserver
  * @package Drivezy\LaravelCampaignManager\Observers
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
-class CampaignOfferObserver extends BaseObserver {
+class CampaignOfferObserver extends BaseObserver
+{
     /**
-     * @var array Required parameters.
+     * Required parameters.
+     *
+     * @var array
      */
     protected $rules = [
         'rate'           => 'required',

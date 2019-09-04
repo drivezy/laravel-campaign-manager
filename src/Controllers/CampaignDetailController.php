@@ -8,9 +8,10 @@ use Drivezy\LaravelRecordManager\Controllers\RecordController;
 /**
  * Class CampaignDetailController
  * @package Drivezy\LaravelCampaignManager\Controllers
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
-class CampaignDetailController extends RecordController {
+class CampaignDetailController extends RecordController
+{
     /**
      * @var CampaignDetail model path.
      */

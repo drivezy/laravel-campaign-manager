@@ -8,15 +8,18 @@ use Illuminate\Database\Migrations\Migration;
 /**
  * Class CreateDzCampaignTermTable
  */
-class CreateDzCampaignTermsTable extends Migration {
+class CreateDzCampaignTermsTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      * @author Yash Devkota <devkotayash4098@gmail.com>
      */
-    public function up () {
-        Schema::create('dz_campaign_terms', function (Blueprint $table) {
+    public function up ()
+    {
+        Schema::create('dz_campaign_terms', function (Blueprint $table)
+        {
             $userTable = LaravelUtility::getUserTable();
 
             $table->bigIncrements('id');
@@ -48,7 +51,8 @@ class CreateDzCampaignTermsTable extends Migration {
      *
      * @return void
      */
-    public function down () {
+    public function down ()
+    {
         Schema::dropIfExists('dz_campaign_term');
     }
 }
