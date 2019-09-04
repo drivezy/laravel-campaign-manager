@@ -8,9 +8,10 @@ use Drivezy\LaravelRecordManager\Controllers\RecordController;
 /**
  * Class CampaignValidationMasterController
  * @package Drivezy\LaravelCampaignManager\Controllers
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
-class CampaignValidationMasterController extends RecordController {
+class CampaignValidationMasterController extends RecordController
+{
 
     /**
      * @var CampaignValidationMaster model path.

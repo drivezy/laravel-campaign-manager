@@ -8,9 +8,10 @@ use Drivezy\LaravelUtility\Models\BaseModel;
 /**
  * Class CampaignCoupon
  * @package JRApp\Models\Marketing
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
-class CampaignCoupon extends BaseModel {
+class CampaignCoupon extends BaseModel
+{
     /**
      * @var Campaign coupons table.
      */
@@ -20,7 +21,8 @@ class CampaignCoupon extends BaseModel {
      * Validations set against coupon.
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function validations () {
+    public function validations ()
+    {
         return $this->hasMany(CampaignValidation::class, 'source_id')->where('source_type', md5(self::class));
     }
 
@@ -28,7 +30,8 @@ class CampaignCoupon extends BaseModel {
      * Offers set against coupon.
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function offers () {
+    public function offers ()
+    {
         return $this->hasMany(CampaignOffer::class, 'source_id')->where('source_type', md5(self::class));
     }
 
@@ -36,7 +39,8 @@ class CampaignCoupon extends BaseModel {
      * Term set against coupon.
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function term () {
+    public function term ()
+    {
         return $this->hasMany(CampaignTerm::class, 'source_id')->where('source_type', md5(self::class));
     }
 
@@ -44,14 +48,16 @@ class CampaignCoupon extends BaseModel {
      * Coupon campaign.
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function campaign () {
+    public function campaign ()
+    {
         return $this->belongsTo(CampaignDetail::class);
     }
 
     /**
      * Boot
      */
-    public static function boot () {
+    public static function boot ()
+    {
         parent::boot();
         self::observe(new CampaignCouponObserver());
     }

@@ -9,9 +9,10 @@ use Drivezy\LaravelUtility\LaravelUtility;
 /**
  * Class BaseCampaignOffer
  * @package Drivezy\LaravelCampaignManager\Libraries\Offer
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
-class BaseCampaignOffer {
+class BaseCampaignOffer
+{
     /**
      * Offer mapped to coupon or its campaign.
      *
@@ -45,10 +46,12 @@ class BaseCampaignOffer {
 
     /**
      * BaseOffer constructor.
+     *
      * @param $request array
-     * @param $offer CampaignOffer
+     * @param $offer   CampaignOffer
      */
-    public function __construct ($request, CampaignOffer $offer) {
+    public function __construct ($request, CampaignOffer $offer)
+    {
         $this->request = $request;
         $this->offer = $offer;
     }
@@ -58,7 +61,8 @@ class BaseCampaignOffer {
      *
      * @return object
      */
-    public function process () {
+    public function process ()
+    {
         /**
          * Sets pricing for which offer is applicable.
          */
@@ -81,7 +85,8 @@ class BaseCampaignOffer {
     /**
      * Sets pricing for which offer is applicable.
      */
-    protected function setOfferApplicablePricing () {
+    protected function setOfferApplicablePricing ()
+    {
         $offerApplicableAccountHeads = explode(',', LaravelUtility::getProperty('offer.applicable.account.heads'));
 
         foreach ( $this->request->pricing as $accountHead => $amount ) {
@@ -97,7 +102,8 @@ class BaseCampaignOffer {
      *
      * @return bool
      */
-    protected function isOfferValid () {
+    protected function isOfferValid ()
+    {
         $valid = $this->offerApplicableAmount >= $this->offer->minimum_order_amount;
 
         if ( !$valid ) Message::error("Minimum booking amount of Rs. {$this->offer->minimum_order_amount} is required.");
@@ -108,7 +114,8 @@ class BaseCampaignOffer {
     /**
      * Sets offer benefit.
      */
-    protected function setBenefit () {
+    protected function setBenefit ()
+    {
 
         /**
          * Sets nature of the offer.
@@ -138,14 +145,16 @@ class BaseCampaignOffer {
      * rate nature corresponds to
      * the benefit category.
      */
-    protected function setOfferNature () {
+    protected function setOfferNature ()
+    {
         $this->offerNature = $this->offer->rate_nature->value;
     }
 
     /**
      * Initializes benefits if it is not initialized against the offer nature.
      */
-    protected function initializeBenefit () {
+    protected function initializeBenefit ()
+    {
         if ( !isset($this->request->coupon_benefits[ $this->offerNature ]) )
             $this->request->coupon_benefits[ $this->offerNature ] = 0;
     }
@@ -156,7 +165,8 @@ class BaseCampaignOffer {
      * This method is to be overwritten in child classes if offer benefit needs to be calculated.
      *
      */
-    protected function setOfferValue () {
+    protected function setOfferValue ()
+    {
         $this->request->coupon_benefits[ $this->offerNature ] = $this->offer->rate;
     }
 }
