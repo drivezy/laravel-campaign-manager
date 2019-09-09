@@ -32,7 +32,7 @@ class ApplyCoupon
      *
      * @param $request
      */
-    public function __construct (object $request)
+    public function __construct ($request)
     {
         $this->request = $request;
     }
