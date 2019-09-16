@@ -23,14 +23,14 @@ class CreateDzCampaignCouponsTable extends Migration
             $userTable = LaravelUtility::getUserTable();
 
             $table->bigIncrements('id');
-            $table->unsignedInteger('campaign_id')->comment('Reference on dz_campaign_details')->nullable();
+            $table->unsignedBigInteger('campaign_id')->comment('Reference on dz_campaign_details')->nullable();
 
             $table->string('code')->comment('Coupon code')->nullable();
-            $table->unsignedInteger('coupon_type_id')->comment('Type of coupon')->nullable();
+            $table->unsignedBigInteger('coupon_type_id')->comment('Type of coupon')->nullable();
             $table->string('description')->comment('Coupon description')->nullable();
 
-            $table->unsignedInteger('created_by')->nullable();
-            $table->unsignedInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

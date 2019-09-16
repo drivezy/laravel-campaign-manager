@@ -22,21 +22,21 @@ class CreateDzCampaignValidationMasterTable extends Migration
         {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->increments('id');
+            $table->bigIncrements('id');
 
             $table->string('name')->comment('Validation name')->nullable();
             $table->string('description')->comment('Validation description')->nullable();
 
             $table->string('validation_class')->comment('Validation class name')->nullable();
 
-            $table->unsignedInteger('data_model_id')->comment('reference on dz_model_details')->nullable();
-            $table->unsignedInteger('column_detail_id')->comment('reference on dz_column_details')->nullable();
-            $table->unsignedInteger('custom_script_id')->comment('reference on dz_system_scripts')->nullable();
+            $table->unsignedBigInteger('data_model_id')->comment('reference on dz_model_details')->nullable();
+            $table->unsignedBigInteger('column_detail_id')->comment('reference on dz_column_details')->nullable();
+            $table->unsignedBigInteger('custom_script_id')->comment('reference on dz_system_scripts')->nullable();
 
             $table->string('error_message', 1024)->comment('Error message')->nullable();
 
-            $table->unsignedInteger('created_by')->nullable();
-            $table->unsignedInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

@@ -22,7 +22,7 @@ class CreateDzCampaignDetailsTable extends Migration
         {
             $userTable = LaravelUtility::getUserTable();
 
-            $table->increments('id');
+            $table->bigIncrements('id');
 
             $table->string('name')->comment('Campaign name')->nullable();
             $table->string('description')->comment('Campaign description')->nullable();
@@ -34,8 +34,8 @@ class CreateDzCampaignDetailsTable extends Migration
             $table->boolean('active')->comment('Active flag')->nullable();
             $table->boolean('reusable')->comment('Reusable flag')->nullable();
 
-            $table->unsignedInteger('created_by')->nullable();
-            $table->unsignedInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

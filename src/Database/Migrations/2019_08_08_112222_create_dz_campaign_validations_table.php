@@ -23,18 +23,18 @@ class CreateDzCampaignValidationsTable extends Migration
             $userTable = LaravelUtility::getUserTable();
 
             $table->bigIncrements('id');
-            $table->unsignedInteger('master_id')->comment('Reference on dz_campaign_validation_master')->nullable();
+            $table->unsignedBigInteger('master_id')->comment('Reference on dz_campaign_validation_master')->nullable();
 
             $table->string('source_type')->comment('Validation source type')->nullable();
-            $table->unsignedInteger('source_id')->comment('Validation source id')->nullable();
+            $table->unsignedBigInteger('source_id')->comment('Validation source id')->nullable();
 
             $table->string('operator')->comment('Operator predicates')->nullable();
             $table->string('value')->comment('Operand for operation')->nullable();
 
             $table->string('error_message', 1024)->comment('Error message')->nullable();;
 
-            $table->unsignedInteger('created_by')->nullable();
-            $table->unsignedInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

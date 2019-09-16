@@ -25,19 +25,19 @@ class CreateDzCampaignOffersTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('source_type')->comment('Offer source type')->nullable();
-            $table->unsignedInteger('source_id')->comment('Offer source id')->nullable();
+            $table->unsignedBigInteger('source_id')->comment('Offer source id')->nullable();
 
             $table->unsignedDecimal('rate', 10, 3)->comment('Offer rate')->nullable();
-            $table->unsignedInteger('rate_nature_id')->comment('Rate nature')->nullable();
+            $table->unsignedBigInteger('rate_nature_id')->comment('Rate nature')->nullable();
 
             $table->unsignedDecimal('minimum_order_amount', 10, 3)->default(0)->comment('Minimum order amount for offer to be applicable');
             $table->unsignedDecimal('maximum_offer_value', 10, 3)->comment('Maximum offer value.')->nullable();
 
             $table->dateTime('validity')->comment('Offer validity')->nullable();
-            $table->unsignedInteger('offer_type_id')->comment('Type of offer referencing dz_lookup_values')->nullable();
+            $table->unsignedBigInteger('offer_type_id')->comment('Type of offer referencing dz_lookup_values')->nullable();
 
-            $table->unsignedInteger('created_by')->nullable();
-            $table->unsignedInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
