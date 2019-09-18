@@ -3,6 +3,7 @@
 namespace Drivezy\LaravelCampaignManager\Libraries;
 
 use Drivezy\LaravelCampaignManager\Libraries\Validations\ModelColumnCampaignValidation;
+use Drivezy\LaravelUtility\Facade\Message;
 use Drivezy\LaravelUtility\LaravelUtility;
 use Drivezy\LaravelUtility\Library\DateUtil;
 
@@ -121,8 +122,12 @@ class ApplyCoupon
         }
 
         if ( empty($this->request->coupon_benefits) )
-            unset($this->request->coupon_benefits);
-        elseif ( LaravelUtility::getProperty('round.off.coupon.benefit', 1) )
+            return Message::error('This coupon is not valid.');
+
+        /**
+         * Rounds off coupon benefit to higher value if property is on.
+         */
+        if ( LaravelUtility::getProperty('round.off.coupon.benefit', 1) )
             $this->roundOffCouponBenefits();
     }
 
