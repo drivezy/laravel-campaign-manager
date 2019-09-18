@@ -4,6 +4,7 @@ namespace Drivezy\LaravelCampaignManager\Libraries;
 
 use Drivezy\LaravelCampaignManager\Libraries\Validations\ModelColumnCampaignValidation;
 use Drivezy\LaravelUtility\LaravelUtility;
+use Drivezy\LaravelUtility\Library\DateUtil;
 
 /**
  * Class ApplyCoupon
@@ -112,12 +113,15 @@ class ApplyCoupon
         /**
          * Offer data from coupon|campaign.
          */
-        $offers = $this->getCouponData('offers');
+        $offers = $this->getOffers();
 
         foreach ( $offers as $offer ) {
             $class = $offer->offer_type->value;
             $this->request = ( new $class($this->request, $offer) )->process();
         }
+
+        if ( empty($this->request->coupon_benefits) )
+            unset($this->request->coupon_benefits);
 
         /**
          * Rounds off coupon benefit to higher value if property is set to 1.
@@ -127,9 +131,24 @@ class ApplyCoupon
     }
 
     /**
+     * Get Offers
+     *
+     * @return array
+     */
+    public function getOffers ()
+    {
+        $data = $this->request->coupon->offers->where('validity', '>', DateUtil::getDateTime());
+        if ( count($data) ) return $data;
+
+        $data = $this->request->coupon->campaign->offers->where('validity', '>', DateUtil::getDateTime());
+
+        return count($data) ? $data : [];
+    }
+
+    /**
      * Rounds off coupon benefit to higher value.
      */
-    private function roundOffCouponBenefits ()
+    protected function roundOffCouponBenefits ()
     {
         foreach ( $this->request->coupon_benefits as $benefit => $amount )
             $this->request->coupon_benefits[ $benefit ] = ceil($amount);
