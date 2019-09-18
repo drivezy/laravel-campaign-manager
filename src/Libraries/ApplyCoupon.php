@@ -122,11 +122,7 @@ class ApplyCoupon
 
         if ( empty($this->request->coupon_benefits) )
             unset($this->request->coupon_benefits);
-
-        /**
-         * Rounds off coupon benefit to higher value if property is set to 1.
-         */
-        if ( LaravelUtility::getProperty('round.off.coupon.benefit', 1) )
+        elseif ( LaravelUtility::getProperty('round.off.coupon.benefit', 1) )
             $this->roundOffCouponBenefits();
     }
 
