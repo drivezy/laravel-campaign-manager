@@ -3,12 +3,13 @@
 namespace Drivezy\LaravelCampaignManager\Models;
 
 use Drivezy\LaravelCampaignManager\Observers\CampaignCouponObserver;
+use Drivezy\LaravelUtility\Library\DateUtil;
 use Drivezy\LaravelUtility\Models\BaseModel;
 
 /**
  * Class CampaignCoupon
  * @package JRApp\Models\Marketing
- * @author  Yash Devkota <devkotayash4098@gmail.com>
+ * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class CampaignCoupon extends BaseModel
 {
@@ -51,6 +52,15 @@ class CampaignCoupon extends BaseModel
     public function campaign ()
     {
         return $this->belongsTo(CampaignDetail::class);
+    }
+
+    /**
+     * Offers set against coupon which are valid against current date.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function valid_offers ()
+    {
+        return $this->hasMany(CampaignOffer::class, 'source_id')->where('source_type', md5(self::class))->where('validity', '>', DateUtil::getDateTime());
     }
 
     /**

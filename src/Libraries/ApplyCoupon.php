@@ -114,7 +114,7 @@ class ApplyCoupon
         /**
          * Offer data from coupon|campaign.
          */
-        $offers = $this->getOffers();
+        $offers = $this->getCouponData('valid_offers');
 
         foreach ( $offers as $offer ) {
             $class = $offer->offer_type->value;
@@ -129,21 +129,6 @@ class ApplyCoupon
          */
         if ( LaravelUtility::getProperty('round.off.coupon.benefit', 1) )
             $this->roundOffCouponBenefits();
-    }
-
-    /**
-     * Get Offers
-     *
-     * @return array
-     */
-    public function getOffers ()
-    {
-        $data = $this->request->coupon->offers->where('validity', '>', DateUtil::getDateTime());
-        if ( count($data) ) return $data;
-
-        $data = $this->request->coupon->campaign->offers->where('validity', '>', DateUtil::getDateTime());
-
-        return count($data) ? $data : [];
     }
 
     /**
