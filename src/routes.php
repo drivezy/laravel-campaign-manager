@@ -1,8 +1,7 @@
 <?php
 
 Route::group(['namespace' => 'Drivezy\LaravelCampaignManager\Controllers',
-              'prefix'    => 'api/record'], function ()
-{
+              'prefix'    => 'api/record'], function () {
 
     Route::resource('coupon', 'CampaignCouponController');
     Route::resource('campaign', 'CampaignDetailController');
@@ -10,5 +9,4 @@ Route::group(['namespace' => 'Drivezy\LaravelCampaignManager\Controllers',
     Route::resource('term', 'CampaignTermController');
     Route::resource('validation', 'CampaignValidationController');
     Route::resource('validationMaster', 'CampaignValidationMasterController');
-
 });

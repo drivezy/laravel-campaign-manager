@@ -28,6 +28,9 @@ class PercentageCampaignOffer extends BaseCampaignOffer
         foreach ( $this->offerApplicablePricing as $accountHead => $amount )
             $offAmount += $amount * $this->offer->rate / 100;
 
+        if ( !$this->offer->maximum_offer_value )
+            return $offAmount;
+
         return $offAmount > $this->offer->maximum_offer_value ? $this->offer->maximum_offer_value : $offAmount;
     }
 }
