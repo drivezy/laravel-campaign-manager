@@ -10,7 +10,8 @@ use Drivezy\LaravelUtility\Library\DateUtil;
  * @package Drivezy\LaravelCampaignManager\Libraries\Validations
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
-class TermCampaignValidation extends BaseCampaignValidation {
+class TermCampaignValidation extends BaseCampaignValidation
+{
     use CouponDataTrait;
 
     /**
@@ -23,10 +24,12 @@ class TermCampaignValidation extends BaseCampaignValidation {
     /**
      * Sets operand for comparision.
      */
-    protected function setOperand () {
+    protected function setOperand ()
+    {
         $this->term = $this->getCouponData('term');
         if ( !count($this->term) ) return $this->operand = true;
 
+        $this->term = $this->term[0];
         $this->operand = $this->isCampaignTimeValid();
         if ( !$this->operand ) return;
 
@@ -38,7 +41,8 @@ class TermCampaignValidation extends BaseCampaignValidation {
      *
      * @return bool
      */
-    private function isCampaignTimeValid () {
+    private function isCampaignTimeValid ()
+    {
         $currentTime = DateUtil::getDateTime();
 
         return ( $this->term->valid_from <= $currentTime && $this->term->valid_to >= $currentTime );
@@ -49,7 +53,8 @@ class TermCampaignValidation extends BaseCampaignValidation {
      *
      * @return bool
      */
-    private function isAssetTimeValid () {
+    private function isAssetTimeValid ()
+    {
         if ( !$this->term->start_time || !$this->term->end_time ) return true;
 
         return ( $this->term->start_time <= $this->request->start_time && $this->term->end_time >= $this->request->end_time );

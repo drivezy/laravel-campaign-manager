@@ -115,8 +115,11 @@ class ApplyCoupon
          */
         $this->setBenefitsFromOffers();
 
-        if ( empty($this->request->coupon_benefits) )
+        if ( empty($this->request->coupon_benefits) ) {
+            unset($this->request->coupon_benefits);
+
             return Message::error('This coupon is not valid.');
+        }
 
         /**
          * Set description for coupon.
@@ -147,12 +150,12 @@ class ApplyCoupon
     }
 
     /**
-     * Rounds off coupon benefit to higher value.
+     * Rounds off coupon benefit.
      */
     protected function roundOffCouponBenefits ()
     {
         foreach ( $this->request->coupon_benefits as $benefit => $amount )
-            $this->request->coupon_benefits[ $benefit ] = ceil($amount);
+            $this->request->coupon_benefits[ $benefit ] = round($amount);
     }
 
     /**

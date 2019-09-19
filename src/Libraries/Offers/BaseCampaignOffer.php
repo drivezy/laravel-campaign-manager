@@ -9,7 +9,7 @@ use Drivezy\LaravelUtility\LaravelUtility;
 /**
  * Class BaseCampaignOffer
  * @package Drivezy\LaravelCampaignManager\Libraries\Offer
- * @author  Yash Devkota <devkotayash4098@gmail.com>
+ * @author Yash Devkota <devkotayash4098@gmail.com>
  */
 class BaseCampaignOffer
 {
@@ -48,7 +48,7 @@ class BaseCampaignOffer
      * BaseOffer constructor.
      *
      * @param $request array
-     * @param $offer   CampaignOffer
+     * @param $offer CampaignOffer
      */
     public function __construct ($request, CampaignOffer $offer)
     {
@@ -104,11 +104,7 @@ class BaseCampaignOffer
      */
     protected function isOfferValid ()
     {
-        $valid = $this->offerApplicableAmount >= $this->offer->minimum_order_amount;
-
-        if ( !$valid ) Message::error("Minimum booking amount of Rs. {$this->offer->minimum_order_amount} is required.");
-
-        return $valid;
+        return $this->offerApplicableAmount >= $this->offer->minimum_order_amount;
     }
 
     /**
@@ -162,7 +158,7 @@ class BaseCampaignOffer
     /**
      * Sets offer value
      *
-     * This method is to be overwritten in child classes if offer benefit needs to be calculated.
+     * This method is to be overwritten in child classes if offer value needs to be calculated.
      *
      */
     protected function setOfferValue ()
