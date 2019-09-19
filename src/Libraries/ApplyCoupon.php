@@ -5,7 +5,6 @@ namespace Drivezy\LaravelCampaignManager\Libraries;
 use Drivezy\LaravelCampaignManager\Libraries\Validations\ModelColumnCampaignValidation;
 use Drivezy\LaravelUtility\Facade\Message;
 use Drivezy\LaravelUtility\LaravelUtility;
-use Drivezy\LaravelUtility\Library\DateUtil;
 
 /**
  * Class ApplyCoupon
@@ -112,17 +111,17 @@ class ApplyCoupon
     private function setCouponBenefits ()
     {
         /**
-         * Offer data from coupon|campaign.
+         * Sets coupon benefits from offers.
          */
-        $offers = $this->getCouponData('valid_offers');
-
-        foreach ( $offers as $offer ) {
-            $class = $offer->offer_type->value;
-            $this->request = ( new $class($this->request, $offer) )->process();
-        }
+        $this->setBenefitsFromOffers();
 
         if ( empty($this->request->coupon_benefits) )
             return Message::error('This coupon is not valid.');
+
+        /**
+         * Set description for coupon.
+         */
+        $this->setCouponDescription();
 
         /**
          * Rounds off coupon benefit to higher value if property is on.
@@ -132,11 +131,35 @@ class ApplyCoupon
     }
 
     /**
+     * Sets coupon benefits from offers.
+     */
+    protected function setBenefitsFromOffers ()
+    {
+        /**
+         * Offer data from coupon|campaign.
+         */
+        $offers = $this->getCouponData('valid_offers');
+
+        foreach ( $offers as $offer ) {
+            $class = $offer->offer_type->value;
+            $this->request = ( new $class($this->request, $offer) )->process();
+        }
+    }
+
+    /**
      * Rounds off coupon benefit to higher value.
      */
     protected function roundOffCouponBenefits ()
     {
         foreach ( $this->request->coupon_benefits as $benefit => $amount )
             $this->request->coupon_benefits[ $benefit ] = ceil($amount);
+    }
+
+    /**
+     * Sets coupon description.
+     */
+    protected function setCouponDescription ()
+    {
+        $this->request->coupon_description = $this->request->coupon->description ? : $this->request->coupon->campaign->description;
     }
 }
