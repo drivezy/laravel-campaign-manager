@@ -34,13 +34,13 @@ class CampaignTermObserver extends BaseObserver
 
         $master = CampaignValidationMaster::where('validation_class', TermCampaignValidation::class)->first();
 
-        $validation = new CampaignValidation();
-        $validation->master_id = $master->id;
-        $validation->source_type = $model->source_type;
-        $validation->source_id = $model->source_id;
-        $validation->operator = 'eq';
-        $validation->value = 1;
-        $validation->error_message = $master->error_message;
-        $validation->save();
+        CampaignValidation::firstOrCreate([
+            'source_type'   => $model->source_type,
+            'source_id'     => $model->source_id,
+            'value'         => 1,
+            'operator'      => 'eq',
+            'master_id'     => $master->id,
+            'error_message' => $master->error_message,
+        ]);
     }
 }

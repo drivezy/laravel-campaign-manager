@@ -20,7 +20,7 @@ class CampaignValidationObserver extends BaseObserver
         'source_type' => 'required',
         'source_id'   => 'required',
         'master_id'   => 'required',
-        'operator_id' => 'required',
+        'operator'    => 'required',
         'value'       => 'required',
     ];
 }

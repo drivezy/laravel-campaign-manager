@@ -43,9 +43,9 @@ class TermCampaignValidation extends BaseCampaignValidation
      */
     private function isCampaignTimeValid ()
     {
-        $currentTime = DateUtil::getDateTime();
+        $couponAppliedAt = $this->request->coupon_applied_at ?? DateUtil::getDateTime();
 
-        return ( $this->term->valid_from <= $currentTime && $this->term->valid_to >= $currentTime );
+        return ( $this->term->valid_from <= $couponAppliedAt && $this->term->valid_to >= $couponAppliedAt );
     }
 
     /**
