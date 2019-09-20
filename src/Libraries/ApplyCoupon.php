@@ -5,6 +5,7 @@ namespace Drivezy\LaravelCampaignManager\Libraries;
 use Drivezy\LaravelCampaignManager\Libraries\Validations\ModelColumnCampaignValidation;
 use Drivezy\LaravelUtility\Facade\Message;
 use Drivezy\LaravelUtility\LaravelUtility;
+use Drivezy\LaravelUtility\Models\LookupValue;
 
 /**
  * Class ApplyCoupon
@@ -115,11 +116,10 @@ class ApplyCoupon
          */
         $this->setBenefitsFromOffers();
 
-        if ( empty($this->request->coupon_benefits) ) {
-            unset($this->request->coupon_benefits);
-
-            return Message::error('This coupon is not valid.');
-        }
+        /**
+         * Validate generated benefits.
+         */
+        if ( !$this->validateCouponBenefits() ) return;
 
         /**
          * Set description for coupon.
@@ -132,6 +132,7 @@ class ApplyCoupon
         if ( LaravelUtility::getProperty('round.off.coupon.benefit', 1) )
             $this->roundOffCouponBenefits();
     }
+
 
     /**
      * Sets coupon benefits from offers.
@@ -150,12 +151,36 @@ class ApplyCoupon
     }
 
     /**
-     * Rounds off coupon benefit.
+     * Validates generated benefits.
      */
-    protected function roundOffCouponBenefits ()
+    protected function validateCouponBenefits ()
     {
-        foreach ( $this->request->coupon_benefits as $benefit => $amount )
-            $this->request->coupon_benefits[ $benefit ] = round($amount);
+        $benefitHeads = LookupValue::where('lookup_type_id', LaravelUtility::getProperty('offer.nature.lookup.type'))->pluck('value')->toArray();
+        foreach ( $benefitHeads as $benefitHead ) {
+            if ( isset($this->request->coupon_benefits[ $benefitHead ]) && $this->request->coupon_benefits[ $benefitHead ] == 0 )
+                unset($this->request->coupon_benefits[ $benefitHead ]);
+        }
+
+        if ( !empty($this->request->coupon_benefits) ) return true;
+
+        /**
+         * Sets invalid benefit error message.
+         */
+        return $this->setInvalidBenefitError();
+    }
+
+    /**
+     * Return false after unseeting coupon benefits and giving error message.
+     *
+     * @return bool false
+     */
+    protected function setInvalidBenefitError ()
+    {
+        unset($this->request->coupon_benefits);
+
+        Message::error('This coupon is not valid.');
+
+        return false;
     }
 
     /**
@@ -164,5 +189,14 @@ class ApplyCoupon
     protected function setCouponDescription ()
     {
         $this->request->coupon_description = $this->request->coupon->description ? : $this->request->coupon->campaign->description;
+    }
+
+    /**
+     * Rounds off coupon benefit.
+     */
+    protected function roundOffCouponBenefits ()
+    {
+        foreach ( $this->request->coupon_benefits as $benefit => $amount )
+            $this->request->coupon_benefits[ $benefit ] = round($amount);
     }
 }
