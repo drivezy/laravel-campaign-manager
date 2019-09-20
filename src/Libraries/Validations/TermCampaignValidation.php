@@ -57,6 +57,9 @@ class TermCampaignValidation extends BaseCampaignValidation
     {
         if ( !$this->term->start_time || !$this->term->end_time ) return true;
 
-        return ( $this->term->start_time <= $this->request->start_time && $this->term->end_time >= $this->request->end_time );
+        $startTime = $this->request->original_pricing_start_time ?? $this->request->start_time;
+        $endTime = $this->request->original_pricing_end_time ?? $this->request->end_time;
+
+        return ( $this->term->start_time <= $startTime && $this->term->end_time >= $endTime );
     }
 }
