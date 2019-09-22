@@ -9,7 +9,7 @@ use Drivezy\LaravelUtility\LaravelUtility;
 /**
  * Class BaseCampaignOffer
  * @package Drivezy\LaravelCampaignManager\Libraries\Offer
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
 class BaseCampaignOffer
 {
@@ -48,7 +48,7 @@ class BaseCampaignOffer
      * BaseOffer constructor.
      *
      * @param $request array
-     * @param $offer CampaignOffer
+     * @param $offer   CampaignOffer
      */
     public function __construct ($request, CampaignOffer $offer)
     {
@@ -87,7 +87,7 @@ class BaseCampaignOffer
      */
     protected function setOfferApplicablePricing ()
     {
-        $offerApplicableAccountHeads = explode(',', LaravelUtility::getProperty('offer.applicable.account.heads'));
+        $offerApplicableAccountHeads = $this->getOfferApplicableAccountHeads();
 
         foreach ( $this->request->pricing as $accountHead => $amount ) {
             if ( in_array($accountHead, $offerApplicableAccountHeads) ) {
@@ -95,6 +95,16 @@ class BaseCampaignOffer
                 $this->offerApplicableAmount += $amount;
             }
         }
+    }
+
+    /**
+     * Account heads applicable for offer.
+     *
+     * @return array
+     */
+    protected function getOfferApplicableAccountHeads ()
+    {
+        return explode(',', LaravelUtility::getProperty('offer.applicable.account.heads'));
     }
 
     /**
@@ -158,7 +168,7 @@ class BaseCampaignOffer
     /**
      * Sets offer value
      *
-     * This method is to be overwritten in child classes if offer value needs to be calculated.
+     * This method is to be overwritten in child classes if offer benefit needs to be calculated.
      *
      */
     protected function setOfferValue ()

@@ -112,4 +112,16 @@ class CampaignConditionEvaluator
     {
         return in_array($this->operand, explode(',', $this->validation->value));
     }
+
+    /**
+     * Checks if operand contains the value.
+     *
+     * Both operand and value need to be string.
+     *
+     * @return bool|int
+     */
+    public function like ()
+    {
+        return strpos($this->operand, $this->validation->value) !== false;
+    }
 }
