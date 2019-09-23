@@ -7,16 +7,23 @@ use Illuminate\Support\ServiceProvider;
 /**
  * Class LaravelCampaignManagerServiceProvider
  * @package Drivezy\LaravelCampaignManager
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
-class LaravelCampaignManagerServiceProvider extends ServiceProvider {
+class LaravelCampaignManagerServiceProvider extends ServiceProvider
+{
 
     /**
      * Bootstrap services.
      *
      * @return void
      */
-    public function boot () {
+    public function boot ()
+    {
+        /**
+         * load routes defined out here
+         */
+        $this->loadRoutesFrom(__DIR__ . '/routes.php');
+
         /**
          * Load migrations as part of this package
          */

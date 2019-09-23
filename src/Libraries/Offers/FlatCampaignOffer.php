@@ -5,13 +5,15 @@ namespace Drivezy\LaravelCampaignManager\Libraries\Offers;
 /**
  * Class FlatCampaignOffer
  * @package Drivezy\LaravelCampaignManager\Libraries\Offer
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
-class FlatCampaignOffer extends BaseCampaignOffer {
+class FlatCampaignOffer extends BaseCampaignOffer
+{
     /**
      * Sets offer value
      */
-    protected function setOfferValue () {
+    protected function setOfferValue ()
+    {
         $this->request->coupon_benefits[ $this->offerNature ] = $this->getFlatAmount();
     }
 
@@ -20,7 +22,8 @@ class FlatCampaignOffer extends BaseCampaignOffer {
      *
      * @return float
      */
-    protected function getFlatAmount () {
+    protected function getFlatAmount ()
+    {
         return $this->offerApplicableAmount > $this->offer->rate ? $this->offer->rate : $this->offerApplicableAmount;
     }
 }

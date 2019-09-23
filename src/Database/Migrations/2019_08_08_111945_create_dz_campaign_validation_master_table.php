@@ -9,14 +9,17 @@ use Illuminate\Database\Migrations\Migration;
  * Class CreateDzCampaignValidationMasterTable
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
-class CreateDzCampaignValidationMasterTable extends Migration {
+class CreateDzCampaignValidationMasterTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up () {
-        Schema::create('dz_campaign_validation_master', function (Blueprint $table) {
+    public function up ()
+    {
+        Schema::create('dz_campaign_validation_master', function (Blueprint $table)
+        {
             $userTable = LaravelUtility::getUserTable();
 
             $table->increments('id');
@@ -52,7 +55,8 @@ class CreateDzCampaignValidationMasterTable extends Migration {
      *
      * @return void
      */
-    public function down () {
+    public function down ()
+    {
         Schema::dropIfExists('dz_campaign_validation_master');
     }
 }

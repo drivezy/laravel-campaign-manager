@@ -10,7 +10,8 @@ use Drivezy\LaravelUtility\Library\DateUtil;
  * @package Drivezy\LaravelCampaignManager\Libraries\Validations
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
-class TermCampaignValidation extends BaseCampaignValidation {
+class TermCampaignValidation extends BaseCampaignValidation
+{
     use CouponDataTrait;
 
     /**
@@ -23,10 +24,12 @@ class TermCampaignValidation extends BaseCampaignValidation {
     /**
      * Sets operand for comparision.
      */
-    protected function setOperand () {
+    protected function setOperand ()
+    {
         $this->term = $this->getCouponData('term');
         if ( !count($this->term) ) return $this->operand = true;
 
+        $this->term = $this->term[0];
         $this->operand = $this->isCampaignTimeValid();
         if ( !$this->operand ) return;
 
@@ -38,10 +41,11 @@ class TermCampaignValidation extends BaseCampaignValidation {
      *
      * @return bool
      */
-    private function isCampaignTimeValid () {
-        $currentTime = DateUtil::getDateTime();
+    private function isCampaignTimeValid ()
+    {
+        $couponAppliedAt = $this->request->coupon_applied_at ?? DateUtil::getDateTime();
 
-        return ( $this->term->valid_from <= $currentTime && $this->term->valid_to >= $currentTime );
+        return ( $this->term->valid_from <= $couponAppliedAt && $this->term->valid_to >= $couponAppliedAt );
     }
 
     /**
@@ -49,9 +53,13 @@ class TermCampaignValidation extends BaseCampaignValidation {
      *
      * @return bool
      */
-    private function isAssetTimeValid () {
+    private function isAssetTimeValid ()
+    {
         if ( !$this->term->start_time || !$this->term->end_time ) return true;
 
-        return ( $this->term->start_time <= $this->request->start_time && $this->term->end_time >= $this->request->end_time );
+        $startTime = $this->request->original_pricing_start_time ?? $this->request->start_time;
+        $endTime = $this->request->original_pricing_end_time ?? $this->request->end_time;
+
+        return ( $this->term->start_time <= $startTime && $this->term->end_time >= $endTime );
     }
 }

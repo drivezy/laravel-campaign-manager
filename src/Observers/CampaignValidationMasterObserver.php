@@ -7,11 +7,14 @@ use Drivezy\LaravelUtility\Observers\BaseObserver;
 /**
  * Class CampaignValidationMasterObserver
  * @package Drivezy\LaravelCampaignManager\Observers
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
-class CampaignValidationMasterObserver extends BaseObserver {
+class CampaignValidationMasterObserver extends BaseObserver
+{
     /**
-     * @var array Required parameters.
+     * Required parameters.
+     *
+     * @var array
      */
     protected $rules = [
         'name'             => 'required',

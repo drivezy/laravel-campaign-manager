@@ -13,9 +13,10 @@ use Drivezy\LaravelCampaignManager\Models\CampaignValidation;
  * <Y> is comparision value taken from CampaignValidation.
  *
  * @package Drivezy\LaravelCampaignManager\Libraries
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
-class CampaignConditionEvaluator {
+class CampaignConditionEvaluator
+{
 
     /**
      * CampaignValidation
@@ -34,9 +35,10 @@ class CampaignConditionEvaluator {
      * CampaignConditionEvaluator constructor.
      *
      * @param CampaignValidation $validation
-     * @param $operand operand against whom operation is evaluated.
+     * @param                    $operand operand against whom operation is evaluated.
      */
-    public function __construct (CampaignValidation $validation, $operand) {
+    public function __construct (CampaignValidation $validation, $operand)
+    {
         $this->validation = $validation;
         $this->operand = $operand;
     }
@@ -46,7 +48,8 @@ class CampaignConditionEvaluator {
      *
      * @return bool
      */
-    public function eq () {
+    public function eq ()
+    {
         return ( $this->operand == $this->validation->value );
     }
 
@@ -55,7 +58,8 @@ class CampaignConditionEvaluator {
      *
      * @return bool
      */
-    public function ne () {
+    public function ne ()
+    {
         return ( $this->operand != $this->validation->value );
     }
 
@@ -64,7 +68,8 @@ class CampaignConditionEvaluator {
      *
      * @return bool
      */
-    public function gt () {
+    public function gt ()
+    {
         return ( $this->operand > $this->validation->value );
     }
 
@@ -73,7 +78,8 @@ class CampaignConditionEvaluator {
      *
      * @return bool
      */
-    public function lt () {
+    public function lt ()
+    {
         return ( $this->operand < $this->validation->value );
     }
 
@@ -82,7 +88,8 @@ class CampaignConditionEvaluator {
      *
      * @return bool
      */
-    public function ge () {
+    public function ge ()
+    {
         return ( $this->operand >= $this->validation->value );
     }
 
@@ -91,7 +98,8 @@ class CampaignConditionEvaluator {
      *
      * @return bool
      */
-    public function le () {
+    public function le ()
+    {
         return ( $this->operand <= $this->validation->value );
     }
 
@@ -100,7 +108,20 @@ class CampaignConditionEvaluator {
      *
      * @return bool
      */
-    public function in () {
+    public function in ()
+    {
         return in_array($this->operand, explode(',', $this->validation->value));
+    }
+
+    /**
+     * Checks if operand contains the value.
+     *
+     * Both operand and value need to be string.
+     *
+     * @return bool|int
+     */
+    public function like ()
+    {
+        return strpos($this->operand, $this->validation->value) !== false;
     }
 }

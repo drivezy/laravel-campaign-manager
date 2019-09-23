@@ -9,14 +9,17 @@ use Illuminate\Database\Migrations\Migration;
  * Class CreateDzCampaignDetailsTable
  * @author Yash Devkota <devkotayash4098@gmail.com>
  */
-class CreateDzCampaignDetailsTable extends Migration {
+class CreateDzCampaignDetailsTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up () {
-        Schema::create('dz_campaign_details', function (Blueprint $table) {
+    public function up ()
+    {
+        Schema::create('dz_campaign_details', function (Blueprint $table)
+        {
             $userTable = LaravelUtility::getUserTable();
 
             $table->increments('id');
@@ -47,7 +50,8 @@ class CreateDzCampaignDetailsTable extends Migration {
      *
      * @return void
      */
-    public function down () {
+    public function down ()
+    {
         Schema::dropIfExists('dz_campaign_details');
     }
 }

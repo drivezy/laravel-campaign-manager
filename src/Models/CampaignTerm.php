@@ -8,9 +8,10 @@ use Drivezy\LaravelUtility\Models\BaseModel;
 /**
  * Class CampaignTerm
  * @package JRApp\Models\Marketing
- * @author Yash Devkota <devkotayash4098@gmail.com>
+ * @author  Yash Devkota <devkotayash4098@gmail.com>
  */
-class CampaignTerm extends BaseModel {
+class CampaignTerm extends BaseModel
+{
     /**
      * @var Campaign Term table.
      */
@@ -19,7 +20,8 @@ class CampaignTerm extends BaseModel {
     /**
      * Boot
      */
-    public static function boot () {
+    public static function boot ()
+    {
         parent::boot();
         self::observe(new CampaignTermObserver());
     }
