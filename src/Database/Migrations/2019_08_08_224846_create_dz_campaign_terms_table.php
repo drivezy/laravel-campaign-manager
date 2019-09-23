@@ -25,7 +25,7 @@ class CreateDzCampaignTermsTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('source_type')->comment('Term source type');
-            $table->unsignedInteger('source_id')->comment('Term source id');
+            $table->unsignedBigInteger('source_id')->comment('Term source id');
 
             $table->dateTime('start_time')->comment('Asset start time')->nullable();
             $table->dateTime('end_time')->comment('Asset end time.')->nullable();
@@ -33,8 +33,8 @@ class CreateDzCampaignTermsTable extends Migration
             $table->dateTime('valid_from')->comment('Campaign start time')->nullable();
             $table->dateTime('valid_to')->comment('Campaign end time')->nullable();
 
-            $table->unsignedInteger('created_by')->nullable();
-            $table->unsignedInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
