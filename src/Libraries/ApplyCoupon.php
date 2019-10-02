@@ -139,10 +139,12 @@ class ApplyCoupon
      */
     protected function setBenefitsFromOffers ()
     {
+        $offerMapping = $this->validateCouponFlag ? 'valid_offers' : 'offers';
+
         /**
          * Offer data from coupon|campaign.
          */
-        $offers = $this->getCouponData('valid_offers');
+        $offers = $this->getCouponData($offerMapping);
 
         foreach ( $offers as $offer ) {
             $class = $offer->offer_type->value;
